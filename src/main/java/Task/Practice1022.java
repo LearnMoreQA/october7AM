@@ -37,7 +37,7 @@ public class Practice1022 {
 
         //Factorial
         int n, fact = 1;
-        Scanner scan = new Scanner(System.in);
+        scan = new Scanner(System.in);
         System.out.println("Enter the number: ");
         n = scan.nextInt();
 
