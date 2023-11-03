@@ -48,7 +48,7 @@ public class Practice1022 {
         System.out.println("Factorial of number " + n + " is " + fact);
 
 
-        
+
     }
         }
 
