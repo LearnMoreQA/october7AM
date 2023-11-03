@@ -18,7 +18,7 @@ public class Practice1022 {
         } else {
             System.out.println("The number is odd");
         }
-        
+
 
         //Vowel or consonant
         char ch;
