@@ -8,7 +8,7 @@ public class Practice1022 {
     public static void main(String[] args) {
 
 //Even or odd
-       /*Scanner input = new Scanner(System.in);
+       Scanner input = new Scanner(System.in);
         int number;
         System.out.println("Enter the number: ");
         number = input.nextInt();
@@ -21,7 +21,7 @@ public class Practice1022 {
 
 
         //Vowel or consonant
-        /*char ch;
+        char ch;
        Scanner scan = new Scanner(System.in);
         System.out.println("Enter the character: ");
         ch = scan.next().charAt(0);
@@ -32,11 +32,11 @@ public class Practice1022 {
             System.out.println("ch is vowel");
         } else {
             System.out.println("ch  is consonant");
-        }*/
+        }
 
 
         //Factorial
-        /*int n, fact = 1;
+        int n, fact = 1;
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter the number: ");
         n = scan.nextInt();
@@ -45,10 +45,10 @@ public class Practice1022 {
         for (int i = 1; i <= n; i++) {
             fact = fact * i;
         }
-        System.out.println("Factorial of number " + n + " is " + fact);*/
+        System.out.println("Factorial of number " + n + " is " + fact);
 
 
-        //
+        
     }
         }
 
