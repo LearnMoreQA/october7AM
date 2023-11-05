@@ -47,7 +47,28 @@ public class Practice1022 {
         }
         System.out.println("Factorial of number " + n + " is " + fact);
 
+// Reverse string
 
+       char s;
+        for(s='k';s>='a';s--)
+        {
+            System.out.print(s);
+        }
+
+        //pattern of numbers
+
+        int i,j,rc=4;
+        int pattern=1;
+
+        for(i=0;i<=rc;i++)
+        {
+            for(j=0;j<=i;j++)
+            {
+                System.out.print(pattern +" ");
+                pattern++;
+            }
+            System.out.println();
+        }
 
     }
         }
