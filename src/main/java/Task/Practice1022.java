@@ -8,7 +8,7 @@ public class Practice1022 {
     public static void main(String[] args) {
 
 //Even or odd
-       Scanner input = new Scanner(System.in);
+      Scanner input = new Scanner(System.in);
         int number;
         System.out.println("Enter the number: ");
         number = input.nextInt();
@@ -18,7 +18,6 @@ public class Practice1022 {
         } else {
             System.out.println("The number is odd");
         }
-
 
         //Vowel or consonant
         char ch;
@@ -55,7 +54,7 @@ public class Practice1022 {
             System.out.print(s);
         }
 
-        //pattern of numbers
+ //pattern of numbers
 
         int i,j,rc=4;
         int pattern=1;
