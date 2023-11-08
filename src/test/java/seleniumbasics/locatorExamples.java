@@ -53,6 +53,7 @@ public class locatorExamples {
 
     public static void main(String[] args) {
         locatorExamples objRef = new locatorExamples();
+        //objRef.loginMethod();
         objRef.clickForgotPassword();
         objRef.enterUserNameInForgotPwd();
         objRef.validateResetText();
