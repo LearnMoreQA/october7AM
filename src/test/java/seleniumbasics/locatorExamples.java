@@ -7,7 +7,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class locatorExamples {
 
-    public static void main(String[] args) {
+    WebDriver driver; // Global Variable
+
+
+    public void loginMethod(){
         //System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"/src/main/resources/driver/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.get("https://login.salesforce.com/?locale=in");
@@ -24,4 +27,35 @@ public class locatorExamples {
             System.out.println("Test Case FAILED");
         }
     }
+
+    public void clickForgotPassword(){
+        driver = new ChromeDriver(); //  Webdriver driver --> Local Variable (With in a Method)
+        driver.get("https://login.salesforce.com/?locale=in");
+        //driver.findElement(By.linkText("Forgot Your Password?")).click();
+        driver.findElement(By.partialLinkText("Forgot")).click();
+    }
+
+    public void enterUserNameInForgotPwd(){
+        WebElement labelEle = driver.findElement(By.tagName("label"));
+        boolean isLabelDisplayed = labelEle.isDisplayed();
+        if (isLabelDisplayed){ // if (true)
+            System.out.println(labelEle.getText() + " is Displayed");
+        }
+    }
+
+    public void validateResetText(){
+        WebElement resetEle = driver.findElement(By.className("username"));
+        if(resetEle.isDisplayed()){
+            System.out.println(resetEle.getText() + " is Present");
+        }
+    }
+
+
+    public static void main(String[] args) {
+        locatorExamples objRef = new locatorExamples();
+        objRef.clickForgotPassword();
+        objRef.enterUserNameInForgotPwd();
+        objRef.validateResetText();
+    }
+
 }
