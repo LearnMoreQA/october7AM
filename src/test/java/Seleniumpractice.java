@@ -11,7 +11,7 @@ public class Seleniumpractice {
 public void login()
 {
 
-     driver = new ChromeDriver();
+    driver = new ChromeDriver();
     driver.get("https://learnmoreplayground.blogspot.com/");
     driver.findElement(By.partialLinkText("Page")).click();
     driver.findElement(By.id("username")).sendKeys("Learnmore");
@@ -34,9 +34,9 @@ public void login()
     public static void main(String[]args)
     {
 
-        Seleniumpractice objcall = new Seleniumpractice();
-        objcall.login();
-        objcall.welcome();
+        Seleniumpractice objCall = new Seleniumpractice();
+        objCall.login();
+        objCall.welcome();
 
 
         }
