@@ -16,6 +16,7 @@ public void login()
     driver.findElement(By.partialLinkText("Page")).click();
     driver.findElement(By.id("username")).sendKeys("Learnmore");
     driver.findElement(By.id("password")).sendKeys("learnmore@23");
+   driver.findElement(By.cssSelector("button[onclick=login()>Login</button]")).click();
 
 }
 
