@@ -14,36 +14,36 @@ public void login()
     driver = new ChromeDriver();
     driver.get("https://learnmoreplayground.blogspot.com/");
     driver.findElement(By.partialLinkText("Page")).click();
-    driver.findElement(By.id("username")).sendKeys("Learnmore");
-    driver.findElement(By.id("password")).sendKeys("learnmore@23");
+    driver.findElement(By.id("username")).sendKeys("LearnMore");
+    driver.findElement(By.id("password")).sendKeys("learnmore@123");
+    //WebElement driver = findElement(By.id("password")).sendKeys("learnmore@123");
 
 
-  // driver.findElement(By.cssSelector("button[onclick=login()>Login</button]")).click();
+   //By.cssSelector("button[onclick=login()>Login</button]").findElement(driver).click();
 
 }
 
 
-    public void welcome()
-    {
+    public void welcometextcheck() {
         WebElement welcome = driver.findElement(By.className("login-label"));
-        if(welcome.isDisplayed()){
+        if (welcome.isDisplayed()) {
             System.out.println(welcome.getText() + " is Present");
         }
     }
 
 
+        public static void main (String[]args)
+        {
 
-
-    public static void main(String[]args)
-    {
-
-        Seleniumpractice objCall = new Seleniumpractice();
-        objCall.login();
-        objCall.welcome();
+            Seleniumpractice objCall = new Seleniumpractice();
+            objCall.login();
+            objCall.welcometextcheck();
 
 
         }
     }
+
+
 
 
 
