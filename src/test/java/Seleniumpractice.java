@@ -16,20 +16,19 @@ public void login()
     driver.findElement(By.partialLinkText("Page")).click();
     driver.findElement(By.id("username")).sendKeys("LearnMore");
     driver.findElement(By.id("password")).sendKeys("learnmore@123");
-    //WebElement driver = findElement(By.id("password")).sendKeys("learnmore@123");
+    WebElement button = driver.findElement(By.tagName("button")).click()
 
-
-   //By.cssSelector("button[onclick=login()>Login</button]").findElement(driver).click();
 
 }
 
 
     public void welcometextcheck() {
-        WebElement welcome = driver.findElement(By.className("login-label"));
+        WebElement welcome = driver.findElement(By.cssSelector(".login-label"));
         if (welcome.isDisplayed()) {
             System.out.println(welcome.getText() + " is Present");
         }
     }
+
 
 
         public static void main (String[]args)
