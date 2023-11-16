@@ -9,10 +9,25 @@ public class locatorExamples {
 
     WebDriver driver; // Global Variable
 
+    WebElement chkbox;
+
 public void navigateToUrl(){
     //System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"/src/main/resources/driver/chromedriver.exe");
     driver = new ChromeDriver(); //  Webdriver driver --> Local Variable (With in a Method)
     driver.get("https://login.salesforce.com/?locale=in");
+}
+
+public void clickCheckbox(){
+    chkbox = driver.findElement(By.xpath("//div/child::input[@id='rememberUn']"));
+    chkbox.click();
+}
+
+public void verifyCheckbox(){
+    if(chkbox.isSelected()){
+        System.out.println("Checkbox is Checked. Test Case PASSED");
+    }else{
+        System.out.println("Test Case FAILED");
+    }
 }
 
     public void loginMethod(){
@@ -79,14 +94,16 @@ public void navigateToUrl(){
     public static void main(String[] args) {
         locatorExamples objRef = new locatorExamples();
         objRef.navigateToUrl();
+        objRef.clickCheckbox();
+        objRef.verifyCheckbox();
         //objRef.loginMethod();
         //objRef.clickForgotPassword();
         //objRef.isDisplayUserNameInForgotPwd();
         //objRef.validateResetText();
         //objRef.enterUserName();
         //objRef.clickContinueBtn();
-        objRef.clickTryForFreeLink();
-        objRef.fillTrialPage();
+       //objRef.clickTryForFreeLink();
+        //objRef.fillTrialPage();
     }
 
 }
