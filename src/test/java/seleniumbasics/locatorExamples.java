@@ -9,11 +9,28 @@ public class locatorExamples {
 
     WebDriver driver; // Global Variable
 
+    WebElement chkbox;
+
+    public void navigateToUrl(){
+        //System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"/src/main/resources/driver/chromedriver.exe");
+        driver = new ChromeDriver(); //  Webdriver driver --> Local Variable (With in a Method)
+        driver.get("https://login.salesforce.com/?locale=in");
+    }
+
+    public void clickCheckbox(){
+        chkbox = driver.findElement(By.xpath("//div/child::input[@id='rememberUn']"));
+        chkbox.click();
+    }
+
+    public void verifyCheckbox(){
+        if(chkbox.isSelected()){
+            System.out.println("Checkbox is Checked. Test Case PASSED");
+        }else{
+            System.out.println("Test Case FAILED");
+        }
+    }
 
     public void loginMethod(){
-        //System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"/src/main/resources/driver/chromedriver.exe");
-        WebDriver driver = new ChromeDriver();
-        driver.get("https://login.salesforce.com/?locale=in");
         WebElement element = driver.findElement(By.id("username"));
         element.sendKeys("testuser");
         driver.findElement(By.name("pw")).sendKeys("pass123"); // Method Chaining
@@ -29,13 +46,11 @@ public class locatorExamples {
     }
 
     public void clickForgotPassword(){
-        driver = new ChromeDriver(); //  Webdriver driver --> Local Variable (With in a Method)
-        driver.get("https://login.salesforce.com/?locale=in");
         //driver.findElement(By.linkText("Forgot Your Password?")).click();
         driver.findElement(By.partialLinkText("Forgot")).click();
     }
 
-    public void enterUserNameInForgotPwd(){
+    public void isDisplayUserNameInForgotPwd(){
         WebElement labelEle = driver.findElement(By.tagName("label"));
         boolean isLabelDisplayed = labelEle.isDisplayed();
         if (isLabelDisplayed){ // if (true)
@@ -50,13 +65,45 @@ public class locatorExamples {
         }
     }
 
+    public void enterUserName(){
+        WebElement un = driver.findElement(By.cssSelector("input[name='un']"));
+        un.sendKeys("TestUser");
+    }
+
+    public void clickContinueBtn(){
+        WebElement continueBtn = driver.findElement(By.cssSelector("input[value='Continue']"));
+        continueBtn.click();
+    }
+
+    public void clickTryForFreeLink(){
+        driver.findElement(By.partialLinkText("Try")).click();
+    }
+
+    public void fillTrialPage(){
+        driver.findElement(By.xpath("//input[@name='UserFirstName']")).sendKeys("Test");
+        boolean isFirstPointDisplayed = driver.findElement(By.xpath("//li[text()='Pre-loaded data or upload your own']")).isDisplayed();
+        if (isFirstPointDisplayed){
+            System.out.println("First Point Displayed Successfully");
+        }else{
+            System.out.println("First Point is not Displayed");
+        }
+        driver.findElement(By.xpath("//input[contains(@id,'UserLastName')]")).sendKeys("User");
+    }
+
 
     public static void main(String[] args) {
         locatorExamples objRef = new locatorExamples();
+        objRef.navigateToUrl();
+        objRef.clickCheckbox();
+        objRef.verifyCheckbox();
         //objRef.loginMethod();
-        objRef.clickForgotPassword();
-        objRef.enterUserNameInForgotPwd();
-        objRef.validateResetText();
+        //objRef.clickForgotPassword();
+        //objRef.isDisplayUserNameInForgotPwd();
+        //objRef.validateResetText();
+        //objRef.enterUserName();
+        //objRef.clickContinueBtn();
+        //objRef.clickTryForFreeLink();
+        //objRef.fillTrialPage();
     }
 
 }
