@@ -11,7 +11,6 @@ public class locatorExamples {
 
     WebElement chkbox;
 
-<<<<<<< HEAD
     public void navigateToUrl(){
         //System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"/src/main/resources/driver/chromedriver.exe");
         driver = new ChromeDriver(); //  Webdriver driver --> Local Variable (With in a Method)
@@ -30,26 +29,6 @@ public class locatorExamples {
             System.out.println("Test Case FAILED");
         }
     }
-=======
-public void navigateToUrl(){
-    //System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"/src/main/resources/driver/chromedriver.exe");
-    driver = new ChromeDriver(); //  Webdriver driver --> Local Variable (With in a Method)
-    driver.get("https://login.salesforce.com/?locale=in");
-}
-
-public void clickCheckbox(){
-    chkbox = driver.findElement(By.xpath("//div/child::input[@id='rememberUn']"));
-    chkbox.click();
-}
-
-public void verifyCheckbox(){
-    if(chkbox.isSelected()){
-        System.out.println("Checkbox is Checked. Test Case PASSED");
-    }else{
-        System.out.println("Test Case FAILED");
-    }
-}
->>>>>>> main
 
     public void loginMethod(){
         WebElement element = driver.findElement(By.id("username"));
@@ -123,11 +102,7 @@ public void verifyCheckbox(){
         //objRef.validateResetText();
         //objRef.enterUserName();
         //objRef.clickContinueBtn();
-<<<<<<< HEAD
         //objRef.clickTryForFreeLink();
-=======
-       //objRef.clickTryForFreeLink();
->>>>>>> main
         //objRef.fillTrialPage();
     }
 
