@@ -1,17 +1,20 @@
 Feature: To validate the login functionality
 
+  @Smoke @Regression
   Scenario: To validate the Login with valid Credentials
-    Given User navigates to salesforce url
+    Given User navigates to saucedemo url
     When User enters the valid credentials
     And User clicks on login button
     Then User should navigated to home page
 
+  @Regression
   Scenario: To validate the Login with valid username and valid password
-    Given User navigates to salesforce url
-    When User enters the username as "LearnMore" and password as "TestUser"
+    Given User navigates to saucedemo url
+    When User enters the username as "problem_user" and password as "secret_sauce"
     And User clicks on login button
     Then User should navigated to home page
 
+  @Sanity
   Scenario Outline: To validate the invalid credentials
     Given User navigates to saucedemo url
     When User enters the username as "<username>" and password as "<password>"
