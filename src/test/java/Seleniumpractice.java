@@ -27,12 +27,6 @@ public class Seleniumpractice {
     }
 
     //xpath
-    public void eventmgtpage()
-    {
-        driver.findElement(By.
-    }
-
-
 
 
 
@@ -42,7 +36,7 @@ public class Seleniumpractice {
             Seleniumpractice objCall = new Seleniumpractice();
             objCall.login();
             objCall.welcometextcheck();
-            objCall.eventmgtpage();
+
         }
     }
 
