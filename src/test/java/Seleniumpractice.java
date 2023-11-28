@@ -26,7 +26,9 @@ public class Seleniumpractice {
         }
     }
 
-    //xpath
+   //login using getstring method
+
+
 
 
 

@@ -1,6 +1,7 @@
 package Task;
 
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Practice1022 {
@@ -8,7 +9,7 @@ public class Practice1022 {
     public static void main(String[] args) {
 
 //Even or odd
-      Scanner input = new Scanner(System.in);
+     /* Scanner input = new Scanner(System.in);
         int number;
         System.out.println("Enter the number: ");
         number = input.nextInt();
@@ -67,12 +68,25 @@ public class Practice1022 {
                 pattern++;
             }
             System.out.println();
-        }
+        }*/
 
-    }
-        }
+        //Array Task
 
-
-
+        String [][] name= new String[2][3];
 
 
+        name[0][0]="name1";
+       name[0][1]="name2";
+
+       name[1][0]="name3";
+       name[1][1]="name4";
+        System.out.println(Arrays.deepToString(name));
+
+
+        int i,j;
+        for(i=0;i<=name.length;i++)
+
+            for(j=0;j<=i;j++)
+                System.out.println("result: ".toString());
+}
+}
