@@ -85,7 +85,7 @@ public class Practice1022 {
 
         int i,j;
         for(i=0;i<=name.length;i++)
-
+        {
             for(j=0;j<=i;j++)
                 System.out.println("result: ".toString());
 }
