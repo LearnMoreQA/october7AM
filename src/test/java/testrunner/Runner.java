@@ -5,7 +5,7 @@ import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "src/test/resources/feature/login.feature",
-        glue = "stepdefinition",tags = "@Smoke or @Regression")
+@CucumberOptions(features = "src/test/resources/feature",
+        glue = "stepdefinition",tags = "@StaticDropdown")
 public class Runner {
 }
