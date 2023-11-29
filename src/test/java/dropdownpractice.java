@@ -31,9 +31,9 @@ public class dropdownpractice {
 
         WebElement dropdown = driver.findElement(By.id("selectDropdown"));
         select = new Select(dropdown);
-       // select.selectByVisibleText(option);
+       select.selectByVisibleText(option);
        // select.selectByValue(option);
-       select.selectByIndex(2);
+      // select.selectByIndex(2);
         String selectedOption = select.getFirstSelectedOption().getText();
         System.out.println("TC PASS");
 
