@@ -1,3 +1,4 @@
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,43 +12,29 @@ public class dropdownpractice {
     WebDriver driver;
     Select select;
 
-    static Option option;
-
-
-
-
     public void login() {
-
         driver = new ChromeDriver();
         driver.get("https://learnmoreplayground.blogspot.com/p/dropdown.html");
     }
 
-
-
-
     //select dropdown
     public void selectCondition(String option)
     {
-
         WebElement dropdown = driver.findElement(By.id("selectDropdown"));
         select = new Select(dropdown);
        select.selectByVisibleText(option);
        // select.selectByValue(option);
       // select.selectByIndex(2);
         String selectedOption = select.getFirstSelectedOption().getText();
-        System.out.println("TC PASS");
-
-
+        System.out.println(selectedOption);
+        Assert.assertEquals("","Ruby",selectedOption);
     }
 
     public static void main (String[]args)
     {
         dropdownpractice objCall = new dropdownpractice();
         objCall.login();
-
-        objCall.selectCondition(String option);
-
-
+        objCall.selectCondition("Ruby");
     }
 }
 
