@@ -14,7 +14,7 @@ public class PracticeStepdefinition {
 
     WebDriver driver;
 
-    Select select;
+ Select select;
 
     @Given("User navigates to Learnmoreqa url")
     public void navigatetourl() {
@@ -25,7 +25,7 @@ public class PracticeStepdefinition {
     public void Selectdropdown(String option) {
 
         WebElement dropdown = driver.findElement(By.id("selectDropdown"));
-        select = new Select(dropdown);
+         select = new Select(dropdown);
         select.selectByVisibleText(option);
         //select.selectByValue(option);
         // select.selectByIndex(2);
