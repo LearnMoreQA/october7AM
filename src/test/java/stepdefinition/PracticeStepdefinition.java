@@ -9,12 +9,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
 
-public class PracticeStepDef {
+public class PracticeStepdefinition {
 
 
-WebDriver driver;
+    WebDriver driver;
 
-Select select;
+    Select select;
 
     @Given("User navigates to Learnmoreqa url")
     public void navigatetourl() {
@@ -27,7 +27,7 @@ Select select;
         WebElement dropdown = driver.findElement(By.id("selectDropdown"));
         select = new Select(dropdown);
         select.selectByVisibleText(option);
-        select.selectByValue(option);
+        //select.selectByValue(option);
         // select.selectByIndex(2);
     }
     @Then("User verifies the dropdown selection")
