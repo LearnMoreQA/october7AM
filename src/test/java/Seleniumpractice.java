@@ -36,9 +36,10 @@ public class Seleniumpractice {
     //select dropdown
     public void selectCondition(String option)
     {
-        WebElement dropdownEle = driver.findElement(By.className("post-title"));
+        WebElement dropdownEle = driver.findElement(By.id("selectDropdown"));
         select = new Select(dropdownEle);
         select.selectByVisibleText(option);
+        //select.selectByIndex(2);
         String selectedOption = select.getFirstSelectedOption().getText();
 
     }
