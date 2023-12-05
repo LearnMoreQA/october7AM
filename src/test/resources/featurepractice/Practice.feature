@@ -1,6 +1,6 @@
 Feature: To validate the dropdown functionality
 
-  @Dropdownpractice
+  @Dropdown practice
   Scenario : To validate the dropdown feature
     Given User navigates to Learnmoreqa url
     And User selects Ruby from dropdown
