@@ -21,7 +21,7 @@ public class PracticeStepdefinition {
         driver = new ChromeDriver();
         driver.get("https://learnmoreplayground.blogspot.com/p/dropdown.html");
     }
-    @Given("User selects Ruby from dropdown")
+    @When("User selects Ruby from dropdown")
     public void Selectdropdown(String option) {
 
         WebElement dropdown = driver.findElement(By.id("selectDropdown"));

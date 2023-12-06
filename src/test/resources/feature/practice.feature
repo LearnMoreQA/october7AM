@@ -1,9 +1,9 @@
 Feature: To validate the dropdown functionality
 
-  @Dropdown practice
-  Scenario : To validate the dropdown feature
+  @Dropdown1205
+  Scenario : To validate the dropdown
     Given User navigates to Learnmoreqa url
-    And User selects Ruby from dropdown
+    When User selects Ruby from dropdown
     Then User verifies the dropdown selection
 
 
