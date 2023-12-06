@@ -21,20 +21,25 @@ public class PracticeStepdefinition {
         driver = new ChromeDriver();
         driver.get("https://learnmoreplayground.blogspot.com/p/dropdown.html");
     }
-    @When("User selects Ruby from dropdown")
-    public void Selectdropdown(String option) {
+    @When("User selects {string} from dropdown")
+    public void userSelectsFromDropdown(String option) {
+
 
         WebElement dropdown = driver.findElement(By.id("selectDropdown"));
-         select = new Select(dropdown);
+        select = new Select(dropdown);
         select.selectByVisibleText(option);
         //select.selectByValue(option);
         // select.selectByIndex(2);
     }
-    @Then("User verifies the dropdown selection")
-    public void Verifydropdown(String option) {
+
+    @Then("User verifies the {string} from dropdown selection")
+    public void userVerifiesTheFromDropdownSelection(String option) {
         String selectedOption = select.getFirstSelectedOption().getText();
-        System.out.println(selectedOption);
-        Assert.assertEquals(selectedOption + "Dropdown selected as expected" ,selectedOption,option );
+        Assert.assertEquals(selectedOption + " Option is Selected",
+                "Ruby",selectedOption);
 
     }
-}
+
+
+    }
+
