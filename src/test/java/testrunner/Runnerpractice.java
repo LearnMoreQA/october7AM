@@ -5,7 +5,7 @@ import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "src/test/resources/feature/practice.feature",
+@CucumberOptions(features = "src/test/resources/featurepractice",
         glue = "stepdefinition",tags = "@Dropdown1205")
 public class Runnerpractice {
 
