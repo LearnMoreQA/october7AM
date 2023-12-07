@@ -6,6 +6,6 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "src/test/resources/featurepractice",
-        glue = "stepdefinition",tags = "@Dropdown1205")
+        glue = "stepdefinition",tags = "@Dynamicdropdown")
 public class Runner {
 }
