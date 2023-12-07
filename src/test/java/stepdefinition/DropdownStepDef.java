@@ -114,6 +114,15 @@ public class DropdownStepDef {
     public void user_verifies_the_from_and_to_place(String from,String to) {
         String actualFrom = driver.findElement(By.xpath("//div[text()='From']/following-sibling::div/child::input")).getAttribute("value"); // Agra (AGR)
         String actualTo = driver.findElement(By.xpath("//div[text()='To']/following-sibling::div/child::input")).getAttribute("value"); // Jaipur (JAI)
+        if("Agra" == "Jaipur")
+        {
+
+            Assert.assertEquals(actualFrom,actualTo + " Cities selected successfully",Agra,Jaipur);
+        }
+        else
+        {
+            Assert.assertEquals(actualFrom,actualTo + " Cities not selected successfully",from);
+        }
     }
 
 
