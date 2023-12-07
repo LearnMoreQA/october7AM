@@ -110,9 +110,10 @@ public class DropdownStepDef {
         ToEle.sendKeys(destination);
         selectPlaceDropdown(destination);
     }
-    @Then("User verifies the From and To Place")
-    public void user_verifies_the_from_and_to_place() {
-
+    @Then("User verifies the From as {string} and To Place as {string}")
+    public void user_verifies_the_from_and_to_place(String from,String to) {
+        String actualFrom = driver.findElement(By.xpath("//div[text()='From']/following-sibling::div/child::input")).getAttribute("value"); // Agra (AGR)
+        String actualTo = driver.findElement(By.xpath("//div[text()='To']/following-sibling::div/child::input")).getAttribute("value"); // Jaipur (JAI)
     }
 
 }
