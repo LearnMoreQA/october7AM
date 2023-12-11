@@ -8,14 +8,18 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import utils.ConfigReader;
+
+import java.io.IOException;
 
 public class AlertStepDef {
     WebDriver driver;
 
     @Given("user navigates to url")
-    public void user_navigates_to_url() {
+    public void user_navigates_to_url() throws IOException {
         driver = new ChromeDriver();
-        driver.get("https://chercher.tech/practice/practice-pop-ups-selenium-webdriver");
+        String  appUrl = ConfigReader.readProperty().getProperty("url");
+        driver.get(appUrl);
     }
     @When("User clicks on {string} Button in Alert")
     public void user_clicks_on_ok_button_in_alert(String buttonType) throws InterruptedException {
