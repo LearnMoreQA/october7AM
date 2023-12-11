@@ -17,9 +17,10 @@ public class DropdownStepDef {
     Select select;
 
     @Given("User navigates to spicejet url")
-    public void navigateToUrl() {
-        driver = new ChromeDriver(); //  Webdriver driver --> Local Variable (With in a Method)
+    public void navigateToUrl() throws InterruptedException {
+        driver = new ChromeDriver();//  Webdriver driver --> Local Variable (With in a Method)
         driver.get("https://www.spicejet.com/");
+
     }
 
     @When("User selects the {string} Currency")
