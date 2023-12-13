@@ -20,6 +20,7 @@ public class DropdownStepDef {
     public void navigateToUrl() throws InterruptedException {
         driver = new ChromeDriver();//  Webdriver driver --> Local Variable (With in a Method)
         driver.get("https://www.spicejet.com/");
+        Thread.sleep(3000);
 
     }
 
