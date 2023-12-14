@@ -28,10 +28,4 @@ public class RegisterPage extends BaseClass {
         enterText(lastName,"User");
     }
 
-
-
-
-
-
-
 }
