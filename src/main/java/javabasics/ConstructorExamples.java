@@ -15,9 +15,17 @@ public class ConstructorExamples {
 
     }
 
-    public int addValue(int a, int b){
+    public int addValue(int a, int b) // Method Declaration
+    {                                   // Method Definition
         int result = a+b;
         return result;
+    }
+
+
+
+    public double addValue(double a, double b){
+        double res = a + b;
+        return res;
     }
 
     public void addValue(int a, int b, int c){
