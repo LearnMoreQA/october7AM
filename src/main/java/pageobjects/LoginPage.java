@@ -19,5 +19,9 @@ public class LoginPage extends BaseClass {
         clickOnElement(registerLink);
     }
 
+    public void clickOnElement(WebElement ele){
+
+    }
+
 
 }
