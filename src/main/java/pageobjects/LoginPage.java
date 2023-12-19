@@ -1,5 +1,6 @@
 package pageobjects;
 
+import mehodfactory.ElementActions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -16,11 +17,8 @@ public class LoginPage extends BaseClass {
     private WebElement registerLink;
 
     public void clickRegisterLink(){
-        clickOnElement(registerLink);
-    }
-
-    public void clickOnElement(WebElement ele){
-
+       // clickOnElement(registerLink);
+        clickOnElementUsingJs(registerLink);
     }
 
 
