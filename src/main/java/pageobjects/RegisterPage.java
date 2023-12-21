@@ -7,11 +7,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import reuseable.BaseClass;
+import utils.DriverUtils;
 
 public class RegisterPage extends BaseClass {
 
-    public RegisterPage(WebDriver driver){
-        PageFactory.initElements(driver, this);
+    public RegisterPage(){
+        PageFactory.initElements(DriverUtils.getInstance().getDriver(), this);
     }
 
     @FindBy(id = "customer.firstName")
@@ -21,10 +22,20 @@ public class RegisterPage extends BaseClass {
     private WebElement lastName;
 
     public void enterFistName(){
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         enterText(firstName,"Test");
     }
 
     public void enterlastName(){
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         enterText(lastName,"User");
     }
 

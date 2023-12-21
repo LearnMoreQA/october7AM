@@ -6,5 +6,5 @@ import java.io.IOException;
 
 public interface DriverActions {
 
-    WebDriver getUrl() throws IOException;
+    void getUrl() throws IOException;
 }

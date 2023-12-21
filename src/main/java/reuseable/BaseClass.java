@@ -7,18 +7,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import utils.ConfigReader;
+import utils.DriverUtils;
 
 import java.io.IOException;
 
 public class BaseClass implements DriverActions, ElementActions {
 
-    WebDriver driver;
+    // DriverUtils.getInstance() == new DriverUtils();
 
-
-    public WebDriver getUrl() throws IOException {
-        driver = new ChromeDriver();
-        driver.get(ConfigReader.readProperty().getProperty("url"));
-        return driver;
+    public void getUrl() {
+        DriverUtils.getInstance().getDriver().get(ConfigReader.getInstance().getUrl());
     }
 
     public void clickOnElement(WebElement ele){
@@ -30,12 +28,12 @@ public class BaseClass implements DriverActions, ElementActions {
     }
 
     public void clickOnElementUsingJs(WebElement element){
-       JavascriptExecutor js = (JavascriptExecutor) driver;
+       JavascriptExecutor js = (JavascriptExecutor) DriverUtils.getInstance().getDriver();
        js.executeScript("arguments[0].click()",element);
     }
 
     public void enterTextUsingJs(WebElement element,String value){
-        JavascriptExecutor js = (JavascriptExecutor) driver;
+        JavascriptExecutor js = (JavascriptExecutor) DriverUtils.getInstance().getDriver();
         js.executeScript("arguments[0].value=arguments[1]",element,value);
     }
 
