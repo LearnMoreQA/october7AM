@@ -22,20 +22,10 @@ public class RegisterPage extends BaseClass {
     private WebElement lastName;
 
     public void enterFistName(){
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
         enterText(firstName,"Test");
     }
 
     public void enterlastName(){
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
         enterText(lastName,"User");
     }
 

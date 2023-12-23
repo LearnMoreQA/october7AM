@@ -6,10 +6,14 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.ConfigReader;
 import utils.DriverUtils;
 
 import java.io.IOException;
+import java.time.Duration;
 
 public class BaseClass implements DriverActions, ElementActions {
 
@@ -24,7 +28,8 @@ public class BaseClass implements DriverActions, ElementActions {
     }
 
     public void enterText(WebElement ele,String textValue){
-       ele.sendKeys(textValue);
+      explicitlyWaitForVisible(ele);
+      ele.sendKeys(textValue);
     }
 
     public void clickOnElementUsingJs(WebElement element){
@@ -35,6 +40,11 @@ public class BaseClass implements DriverActions, ElementActions {
     public void enterTextUsingJs(WebElement element,String value){
         JavascriptExecutor js = (JavascriptExecutor) DriverUtils.getInstance().getDriver();
         js.executeScript("arguments[0].value=arguments[1]",element,value);
+    }
+
+    public void explicitlyWaitForVisible(WebElement element){
+        WebDriverWait wait = new WebDriverWait(DriverUtils.getInstance().getDriver(), Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOf(element));
     }
 
 }

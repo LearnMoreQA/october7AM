@@ -18,11 +18,6 @@ public class LoginPage extends BaseClass {
     private WebElement registerLink;
 
     public void clickRegisterLink(){
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
        // clickOnElement(registerLink);
         clickOnElementUsingJs(registerLink);
     }

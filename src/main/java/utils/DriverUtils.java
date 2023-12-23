@@ -6,6 +6,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.time.Duration;
+
 public class DriverUtils {
 
     private WebDriver driver;
@@ -23,6 +25,7 @@ public class DriverUtils {
            case "edge" -> driver = new EdgeDriver();
            default -> Assert.fail("Provided Incorrect Browser");
        }
+       driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
     }
 
     public static DriverUtils getInstance(){
