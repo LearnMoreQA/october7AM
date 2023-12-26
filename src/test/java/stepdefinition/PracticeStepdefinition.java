@@ -22,7 +22,7 @@ public class PracticeStepdefinition {
         driver.get("https://learnmoreplayground.blogspot.com/p/dropdown.html");
     }
     @Given("User selects Ruby from dropdown")
-    public void Selectdropdown(String option) {
+    public void selectdropdown(String option) {
 
         WebElement dropdown = driver.findElement(By.id("selectDropdown"));
          select = new Select(dropdown);
@@ -31,7 +31,7 @@ public class PracticeStepdefinition {
         // select.selectByIndex(2);
     }
     @Then("User verifies the dropdown selection")
-    public void Verifydropdown(String option) {
+    public void verifydropdown(String option) {
         String selectedOption = select.getFirstSelectedOption().getText();
         System.out.println(selectedOption);
         Assert.assertEquals(selectedOption + "Dropdown selected as expected" ,selectedOption,option );

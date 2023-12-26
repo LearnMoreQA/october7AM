@@ -5,3 +5,4 @@ Feature: To validate the dropdown functionality
     Given User navigates to Learnmoreqa url
     And User selects Ruby from dropdown
     Then User verifies the dropdown selection
+
