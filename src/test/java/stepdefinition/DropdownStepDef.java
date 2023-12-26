@@ -17,28 +17,32 @@ public class DropdownStepDef {
     Select select;
 
     @Given("User navigates to spicejet url")
-    public void navigateToUrl() {
-        driver = new ChromeDriver(); //  Webdriver driver --> Local Variable (With in a Method)
+    public void navigateToUrl() throws InterruptedException {
+        driver = new ChromeDriver();//  Webdriver driver --> Local Variable (With in a Method)
         driver.get("https://www.spicejet.com/");
+        Thread.sleep(3000);
+
     }
+
     @When("User selects the {string} Currency")
     public void selectCurrency(String currencyOption) {
         WebElement currencyDropdownEle = driver.findElement(By.xpath("//div[text()='Currency']/parent::div"));
         currencyDropdownEle.click();
-       List<WebElement> currencyEle = currencyDropdownEle.findElements(
-               By.xpath("following-sibling::div/descendant::div[@data-focusable='true']/child::div"));
+        List<WebElement> currencyEle = currencyDropdownEle.findElements(
+                By.xpath("following-sibling::div/descendant::div[@data-focusable='true']/child::div"));
 
-       for (WebElement currency : currencyEle){
-           if(currency.getText().equals(currencyOption)){
-               currency.click();
-           }
-       }
+        for (WebElement currency : currencyEle) {
+            if (currency.getText().equals(currencyOption)) {
+                currency.click();
+            }
+        }
     }
+
     @Then("User verifies the {string} Currency")
     public void verifyCurrency(String currency) {
-        WebElement cuEle = driver.findElement(By.xpath("//div[text()='Currency']/following-sibling::div/child::div[text()='"+currency+"']"));
+        WebElement cuEle = driver.findElement(By.xpath("//div[text()='Currency']/following-sibling::div/child::div[text()='" + currency + "']"));
         System.out.println(cuEle);
-        Assert.assertEquals(currency + " Option is Selected",true,cuEle.isDisplayed());
+        Assert.assertEquals(currency + " Option is Selected", true, cuEle.isDisplayed());
     }
 
     @Given("User navigate and Logged to swaglabs url")
@@ -49,6 +53,7 @@ public class DropdownStepDef {
         driver.findElement(By.id("password")).sendKeys("secret_sauce");
         driver.findElement(By.id("login-button")).click();
     }
+
     @When("User Selects the {string} condition")
     public void selectCondition(String option) {
         WebElement dropdownEle = driver.findElement(By.className("product_sort_container"));
@@ -57,10 +62,11 @@ public class DropdownStepDef {
         //select.selectByValue(option);
         //select.selectByIndex(2);
     }
+
     @Then("User verifies the selected option of {string}")
     public void verifySelectedOption(String option) {
         String selectedOption = select.getFirstSelectedOption().getText();
-        Assert.assertEquals(selectedOption + " Dropdown Value Selected Successfully",option,selectedOption);
+        Assert.assertEquals(selectedOption + " Dropdown Value Selected Successfully", option, selectedOption);
     }
 
     @Given("User navigates to demoqa url")
@@ -69,26 +75,29 @@ public class DropdownStepDef {
         driver.get("https://demoqa.com/select-menu");
         driver.manage().window().maximize();
     }
+
     @When("User selects the {string} color")
     public void user_selects_the_color(String colorOption) {
         WebElement menuEle = driver.findElement(By.id("oldSelectMenu"));
         select = new Select(menuEle);
         select.selectByVisibleText(colorOption);
     }
+
     @When("User Deselects the color")
     public void user_deselects_the_color() {
         select.deselectByVisibleText("Red");
     }
+
     @Then("User verifies the {string} color")
     public void user_verifies_the_color(String string) {
 
     }
 
-    public void selectPlaceDropdown(String place){
+    public void selectPlaceDropdown(String place) {
         List<WebElement> citiesEle = driver.findElements(
                 By.xpath("//div[text()='Cities']/parent::div/following-sibling::div/descendant::div//div//div//div[contains(@class,'r-ubezar')]"));
-        for (WebElement city : citiesEle){
-            if(city.getText().equals(place)){
+        for (WebElement city : citiesEle) {
+            if (city.getText().equals(place)) {
                 city.click();
             }
         }
@@ -102,7 +111,8 @@ public class DropdownStepDef {
         FromEle.sendKeys(source);
         selectPlaceDropdown(source);
     }
-    @When("User Enters the To Place as {string}")
+
+    @And("User Enters the To Place as {string}")
     public void user_enters_the_to_place_as(String destination) {
         WebElement ToEle = driver.findElement(By.xpath("//div[text()='To']/following-sibling::div//input"));
         ToEle.clear();
@@ -110,9 +120,22 @@ public class DropdownStepDef {
         ToEle.sendKeys(destination);
         selectPlaceDropdown(destination);
     }
-    @Then("User verifies the From and To Place")
-    public void user_verifies_the_from_and_to_place() {
 
+    @Then("User verifies the From as {string} and To Place as {string}")
+    public void user_verifies_the_from_and_to_place(String from, String to) {
+        String actualFrom = driver.findElement(By.xpath("//div[text()='From']/following-sibling::div/child::input")).getAttribute("value"); // Agra (AGR)
+        String actualTo = driver.findElement(By.xpath("//div[text()='To']/following-sibling::div/child::input")).getAttribute("value"); // Jaipur (JAI)
+      //  if ("Agra" == "Jaipur") {
+
+            Assert.assertEquals("Cities selected","true","actualFrom,actualTo");
+
+       // } else {
+            //Assert.assertEquals(actualFrom, actualTo, "from,to" + "Cities not selected successfully");
+        }
     }
+//}
 
-}
+
+
+
+

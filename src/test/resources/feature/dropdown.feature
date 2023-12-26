@@ -24,6 +24,9 @@ Feature: To Handle the Dropdown
     Given User navigates to spicejet url
     When User Enters the From Place as "Agra"
     And User Enters the To Place as "Jaipur"
-    Then User verifies the From and To Place
+    Then User verifies the From as "Agra" and To Place as "Jaipur"
+
+
+
 
 
