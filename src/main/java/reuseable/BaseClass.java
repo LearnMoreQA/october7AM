@@ -3,16 +3,12 @@ package reuseable;
 import mehodfactory.DriverActions;
 import mehodfactory.ElementActions;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.ConfigReader;
 import utils.DriverUtils;
 
-import java.io.IOException;
 import java.time.Duration;
 
 public class BaseClass implements DriverActions, ElementActions {
@@ -45,6 +41,12 @@ public class BaseClass implements DriverActions, ElementActions {
     public void explicitlyWaitForVisible(WebElement element){
         WebDriverWait wait = new WebDriverWait(DriverUtils.getInstance().getDriver(), Duration.ofSeconds(20));
         wait.until(ExpectedConditions.visibilityOf(element));
+    }
+
+
+    public boolean verifyElementDisplayed(WebElement element){
+        explicitlyWaitForVisible(element);
+        return element.isDisplayed();
     }
 
 }

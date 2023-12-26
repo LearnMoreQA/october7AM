@@ -25,7 +25,8 @@ public class DriverUtils {
            case "edge" -> driver = new EdgeDriver();
            default -> Assert.fail("Provided Incorrect Browser");
        }
-       driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+       driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10)); // Wait for Page Loading
+       driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5)); // Wait for Find Element
     }
 
     public static DriverUtils getInstance(){

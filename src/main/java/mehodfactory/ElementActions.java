@@ -8,4 +8,7 @@ public interface ElementActions {
 
     void enterText(WebElement ele, String text);
 
+    boolean verifyElementDisplayed(WebElement ele);
+
+
 }
