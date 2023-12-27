@@ -33,7 +33,7 @@ public class BaseClass implements DriverActions, ElementActions {
     public void clearText(WebElement ele){
         ele.clear();
     }
-    public void enterText(WebElement ele,String... textValue){
+    public void enterText(WebElement ele,String textValue){
         explicitlyWaitForVisible(ele);
         try {
             ele.sendKeys(textValue);
