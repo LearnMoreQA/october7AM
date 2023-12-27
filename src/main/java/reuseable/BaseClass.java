@@ -2,6 +2,9 @@ package reuseable;
 
 import mehodfactory.DriverActions;
 import mehodfactory.ElementActions;
+import org.junit.Assert;
+import org.openqa.selenium.ElementClickInterceptedException;
+import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -20,12 +23,23 @@ public class BaseClass implements DriverActions, ElementActions {
     }
 
     public void clickOnElement(WebElement ele){
-        ele.click();
+        try{
+            ele.click();
+        }catch (Exception e){
+            Assert.fail(e.toString());
+        }
     }
 
-    public void enterText(WebElement ele,String textValue){
-      explicitlyWaitForVisible(ele);
-      ele.sendKeys(textValue);
+    public void clearText(WebElement ele){
+        ele.clear();
+    }
+    public void enterText(WebElement ele,String... textValue){
+        explicitlyWaitForVisible(ele);
+        try {
+            ele.sendKeys(textValue);
+        }catch (Exception e){
+            Assert.fail(e.toString());
+        }
     }
 
     public void clickOnElementUsingJs(WebElement element){
