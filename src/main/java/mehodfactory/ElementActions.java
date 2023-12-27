@@ -1,6 +1,7 @@
 package mehodfactory;
 
 
+import org.openqa.selenium.WebElement;
 
 public interface ElementActions {
 
