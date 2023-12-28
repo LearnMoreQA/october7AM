@@ -19,10 +19,11 @@ public class BingPage extends BaseClass {
     private WebElement input;
 
     public void enterKeyWord(){
-        enterText(input,"Erode");
+        clickOnElement(input);
+        enterTextWithEnterKey(input,"Erode");
     }
     public void clearKeyWord(){
-        clearText(input);
+       // clearText(input);
     }
 
 }

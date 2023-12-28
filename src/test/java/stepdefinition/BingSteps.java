@@ -16,6 +16,6 @@ public class BingSteps {
 
     @And("User Clears the Keyword")
     public void clearKey(){
-
+        bing.clearKeyWord();
     }
 }
