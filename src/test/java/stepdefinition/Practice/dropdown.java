@@ -1,4 +1,4 @@
-package stepdefinition;
+package stepdefinition.Practice;
 
 import io.cucumber.java.en.*;
 import org.junit.Assert;
@@ -9,7 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
 
-public class PracticeStepdefinition {
+public class dropdown {
 
 
     WebDriver driver;
