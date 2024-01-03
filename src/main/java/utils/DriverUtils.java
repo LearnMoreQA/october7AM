@@ -26,7 +26,7 @@ public class DriverUtils {
            default -> Assert.fail("Provided Incorrect Browser");
        }
        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10)); // Wait for Page Loading
-       driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5)); // Wait for Find Element
+       driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15)); // Wait for Find Element
     }
 
     public static DriverUtils getInstance(){
