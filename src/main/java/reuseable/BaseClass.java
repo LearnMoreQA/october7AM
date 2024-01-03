@@ -89,4 +89,9 @@ public class BaseClass implements DriverActions, ElementActions {
     }
 
 
+    public String getElementText(WebElement element){
+        return element.getText().trim();
+    }
+
+
 }
