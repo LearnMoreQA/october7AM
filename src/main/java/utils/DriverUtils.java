@@ -18,18 +18,9 @@ public class DriverUtils {
 
     private DriverUtils(){
         // Driver Initialization
-        String browser = ConfigReader.getInstance().getBrowser();
-       switch(browser){
-           case "chrome" -> driver = new ChromeDriver();
-           case "firefox" -> driver = new FirefoxDriver();
-           case "edge" -> driver = new EdgeDriver();
-           default -> Assert.fail("Provided Incorrect Browser");
-       }
-       driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10)); // Wait for Page Loading
-       driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15)); // Wait for Find Element
     }
 
-    public static DriverUtils getInstance(){
+   public static DriverUtils getInstance(){
         if (instance == null){
             instance = new DriverUtils();
         }
@@ -38,6 +29,10 @@ public class DriverUtils {
 
     public WebDriver getDriver(){
         return driver;
+    }
+
+    public WebDriver setDriver(WebDriver driver){
+        return this.driver = driver;
     }
 
 
