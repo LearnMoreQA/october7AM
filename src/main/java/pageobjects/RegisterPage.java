@@ -7,11 +7,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import reuseable.BaseClass;
+import utils.DriverUtils;
 
 public class RegisterPage extends BaseClass {
 
-    public RegisterPage(WebDriver driver){
-        PageFactory.initElements(driver, this);
+    public RegisterPage(){
+        PageFactory.initElements(DriverUtils.getInstance().getDriver(), this);
     }
 
     @FindBy(id = "customer.firstName")

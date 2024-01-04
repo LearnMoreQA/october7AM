@@ -1,26 +1,48 @@
 package utils;
 
+import org.openqa.selenium.chrome.ChromeDriver;
+
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
 public class ConfigReader {
 
-    static Properties prop;
+    private static Properties prop;
+    public static ConfigReader instance;
 
-    public static Properties readProperty() throws IOException {
-        // 1. File Input Stream (C) - Cover File format to Bytes
-        // 2. Properties (C) - Helps to Retrieve the Key Value in properties File
-        String rootFolder = System.getProperty("user.dir");
-        System.out.println("Root Folder Path : "+rootFolder);
-        FileInputStream fis = new FileInputStream(rootFolder +"/src/test/resources/properties/config.properties");
-        prop = new Properties();
-        prop.load(fis);
-        return prop;
+    private FileInputStream fis;
+
+    private ConfigReader() {
+        try {
+            fis = new FileInputStream(System.getProperty("user.dir")
+                    + "/src/test/resources/properties/config.properties");
+            prop = new Properties();
+            prop.load(fis);
+        } catch (IOException e){
+            e.printStackTrace();
+        }finally {
+            try {
+                fis.close();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
     }
-    /*public static String getUrl(){
+
+    public static ConfigReader getInstance() {
+        if (instance == null) {
+            instance = new ConfigReader();
+        }
+        return instance;
+    }
+
+    public String getUrl() {
         return prop.getProperty("url");
-    }*/
+    }
 
-
+    public String getBrowser() {
+        return prop.getProperty("browser");
+    }
 }

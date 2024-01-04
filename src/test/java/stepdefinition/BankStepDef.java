@@ -9,7 +9,7 @@ import reuseable.BaseClass;
 import java.io.IOException;
 
 public class BankStepDef {
-    WebDriver driver;
+
     BaseClass reuse;
 
     LoginPage login;
@@ -18,14 +18,14 @@ public class BankStepDef {
 
     public BankStepDef(){
         reuse = new BaseClass();
-        login = new LoginPage(driver);
-        register = new RegisterPage(driver);
+        login = new LoginPage();
+        register = new RegisterPage();
     }
 
 
     @Given("User navigates to Application Url")
     public void user_navigates_to_application_url() throws IOException {
-        driver = reuse.getUrl();
+        reuse.getUrl();
     }
     @When("User clicks on Register Link")
     public void user_clicks_on_register_link() {
