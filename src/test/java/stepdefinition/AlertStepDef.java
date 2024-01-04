@@ -21,7 +21,7 @@ public class AlertStepDef {
             case "ok" -> {
                 DriverUtils.getInstance().getDriver().findElement(By.name("alert")).click();
                 Thread.sleep(3000);
-                DriverUtils.getInstance().getDriver().switchTo().alert().accept();
+                DriverUtils.getInstance().getDriver().switchTo().alert();
             }
             case "cancel" -> {
                 DriverUtils.getInstance().getDriver().findElement(By.name("confirmation")).click();
