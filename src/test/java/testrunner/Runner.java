@@ -5,7 +5,7 @@ import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "src/test/resources/feature/Alerts_Mathan.feature", glue = "stepDefinition", tags="@Alerts")
+@CucumberOptions(features = "src/test/resources/feature/learnMoreLogin.feature", glue = "stepDefinition", tags="")
 public class Runner {
 
 }
