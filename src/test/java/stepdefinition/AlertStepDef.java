@@ -15,19 +15,13 @@ import java.io.IOException;
 
 public class AlertStepDef {
 
-
-    @Given("user navigates to url")
-    public void user_navigates_to_url() throws IOException {
-        String  appUrl = ConfigReader.getInstance().getUrl();
-        DriverUtils.getInstance().getDriver().get(appUrl);
-    }
     @When("User clicks on {string} Button in Alert")
     public void user_clicks_on_ok_button_in_alert(String buttonType) throws InterruptedException {
         switch (buttonType){
             case "ok" -> {
                 DriverUtils.getInstance().getDriver().findElement(By.name("alert")).click();
                 Thread.sleep(3000);
-                DriverUtils.getInstance().getDriver().switchTo().alert().accept();
+                DriverUtils.getInstance().getDriver().switchTo().alert();
             }
             case "cancel" -> {
                 DriverUtils.getInstance().getDriver().findElement(By.name("confirmation")).click();
