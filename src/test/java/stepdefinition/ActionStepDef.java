@@ -1,8 +1,10 @@
 package stepdefinition;
 
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageobjects.ActionPage;
+import pageobjects.RegisterPage;
 
 public class ActionStepDef {
 
@@ -16,5 +18,10 @@ public class ActionStepDef {
     @Then("User verifies the message")
     public void userVerifiesTheMessage() {
         actionPage.verifyActionMessage();
+    }
+
+    @Given("User enter All the Input Fields")
+    public void userEnterAllTheInputFields() {
+        new RegisterPage().enterRegisterForm();
     }
 }

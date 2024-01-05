@@ -50,4 +50,6 @@ public class AlertStepDef {
         System.out.println(DriverUtils.getInstance().getDriver().switchTo().alert().getText());
         DriverUtils.getInstance().getDriver().switchTo().alert().accept();
     }
+
+
 }
