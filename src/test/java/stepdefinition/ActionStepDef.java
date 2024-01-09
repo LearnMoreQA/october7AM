@@ -5,6 +5,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageobjects.ActionPage;
 import pageobjects.RegisterPage;
+import utils.ReadExcel;
 
 public class ActionStepDef {
 
@@ -22,6 +23,11 @@ public class ActionStepDef {
 
     @Given("User enter All the Input Fields")
     public void userEnterAllTheInputFields() {
-        new RegisterPage().enterRegisterForm();
+       String fname = ReadExcel.getData("FormData",0,1,0);
+        String lname = ReadExcel.getData("FormData",0,1,1);
+        String email = ReadExcel.getData("FormData",0,1,2);
+        String mobNo = ReadExcel.getData("FormData",0,1,3);
+        String addr = ReadExcel.getData("FormData",0,1,4);
+       new RegisterPage().enterRegisterForm(fname,lname,email,mobNo,addr);
     }
 }

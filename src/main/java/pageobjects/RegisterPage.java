@@ -30,13 +30,12 @@ public class RegisterPage extends BaseClass {
     @FindBy(xpath = "//textarea[@placeholder='Current Address']")
     private WebElement address;
 
-    public void enterRegisterForm(){
-        enterText(firstName,"");
-        enterText(lastName,"");
-        enterText(email,"");
-        enterText(mobileNumber,"");
-        enterText(address,"");
-
+    public void enterRegisterForm(String fname,String lname,String mail,String mobNo,String addr){
+        enterText(firstName,fname);
+        enterText(lastName,lname);
+        enterText(email,mail);
+        enterText(mobileNumber,mobNo);
+        enterText(address,addr);
     }
 
 
