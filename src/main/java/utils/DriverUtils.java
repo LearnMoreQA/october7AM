@@ -1,16 +1,10 @@
 package utils;
 
-import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-
-import java.time.Duration;
 
 public class DriverUtils {
 
-    private WebDriver driver;
+    private static ThreadLocal<WebDriver> tldriver = new ThreadLocal<>();
 
     private static DriverUtils instance;
 
@@ -28,14 +22,12 @@ public class DriverUtils {
     }
 
     public WebDriver getDriver(){
-        return driver;
+        return tldriver.get();
     }
 
-    public WebDriver setDriver(WebDriver driver){
-        return this.driver = driver;
+    public ThreadLocal<WebDriver> setDriver(WebDriver driver){
+        tldriver.set(driver);
+        System.out.println("Test Thread ID: "+Thread.currentThread().getId());
+        return tldriver;
     }
-
-
-
-
 }

@@ -35,8 +35,8 @@ public class Hooks {
 
    @After
     public void closeBrowser(){
-        DriverUtils.getInstance().getDriver().close(); // It will focus on the Current Browser
-       // DriverUtils.getInstance().getDriver().quit(); // It will Close all the driver Instance/Object or Browser
+        //DriverUtils.getInstance().getDriver().close(); // It will focus on the Current Browser
+       DriverUtils.getInstance().getDriver().quit(); // It will Close all the driver Instance/Object or Browser
    }
 
    @AfterStep
