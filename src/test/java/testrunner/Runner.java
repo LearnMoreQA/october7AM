@@ -14,8 +14,12 @@ import org.junit.runner.RunWith;
         plugin = {"html:target/CucumberReports.html",
                 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
 
-        tags = "@Run")
 
+
+
+
+
+        tags = "@Iframe")
 
 public class Runner {
 }
