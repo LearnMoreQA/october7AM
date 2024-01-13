@@ -31,6 +31,7 @@ public class Hooks {
         DriverUtils.getInstance().getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(15)); // Wait for Find Element
         String  appUrl = ConfigReader.getInstance().getUrl();
         DriverUtils.getInstance().getDriver().get(appUrl);
+        DriverUtils.getInstance().getDriver().manage().window().maximize();
     }
 
    @After

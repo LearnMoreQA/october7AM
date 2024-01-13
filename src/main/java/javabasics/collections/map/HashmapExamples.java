@@ -15,9 +15,8 @@ public class HashmapExamples {
         details.put(630002,"Erode");
         details.put(632006,"Salem");
         details.put(620005,"Madurai");
-        details.put(null,"coimbatore");
         details.put(null,"theni");
-
+        details.put(null,"coimbatore");
 
         System.out.println("HashMap : "+ details);
 
