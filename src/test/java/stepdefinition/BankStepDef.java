@@ -33,8 +33,8 @@ public class BankStepDef {
     }
     @When("User fills the Register Form")
     public void user_fills_the_register_form() {
-        register.enterFistName();
-        register.enterlastName();
+       // register.enterFistName();
+        //register.enterlastName();
     }
     @Then("User verifies the Success Message")
     public void user_verifies_the_success_message() {

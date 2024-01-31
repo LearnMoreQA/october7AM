@@ -15,18 +15,30 @@ public class RegisterPage extends BaseClass {
         PageFactory.initElements(DriverUtils.getInstance().getDriver(), this);
     }
 
-    @FindBy(id = "customer.firstName")
+    @FindBy(id = "firstName")
     private WebElement firstName;
 
-    @FindBy(id = "customer.lastName")
+    @FindBy(id = "lastName")
     private WebElement lastName;
 
-    public void enterFistName(){
-        enterText(firstName,"Test");
+    @FindBy(id = "userEmail")
+    private WebElement email;
+
+    @FindBy(id = "userNumber")
+    private WebElement mobileNumber;
+
+    @FindBy(xpath = "//textarea[@placeholder='Current Address']")
+    private WebElement address;
+
+    public void enterRegisterForm(String fname,String lname,String mail,String mobNo,String addr){
+        enterText(firstName,fname);
+        enterText(lastName,lname);
+        enterText(email,mail);
+        enterText(mobileNumber,mobNo);
+        enterText(address,addr);
     }
 
-    public void enterlastName(){
-        enterText(lastName,"User");
-    }
+
+
 
 }

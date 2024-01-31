@@ -6,12 +6,15 @@ import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.ConfigReader;
 import utils.DriverUtils;
 
-import javax.swing.*;
 import java.time.Duration;
+import java.util.List;
+import java.util.Set;
 
 public class BaseClass implements DriverActions, ElementActions {
 
@@ -93,5 +96,75 @@ public class BaseClass implements DriverActions, ElementActions {
         return element.getText().trim();
     }
 
+
+    public void clickFromListOfElement(List<WebElement> elements,String expectedText){
+        for (WebElement element : elements){
+            System.out.println(element.getText());
+            if(element.getText().equals(expectedText)){
+                element.click();
+                break;
+            }
+        }
+    }
+
+    public void switchToChildWindow(){
+        String parent =DriverUtils.getInstance().getDriver().getWindowHandle();
+
+        System.out.println(parent);
+
+        Set<String> child =DriverUtils.getInstance().getDriver().getWindowHandles();
+
+        for (String childWindow: child) {
+            if (!parent.equals(childWindow)) {
+                DriverUtils.getInstance().getDriver().switchTo().window(childWindow);
+                System.out.println("Switched to Child Window" );
+            }
+        }
+
+    }
+
+    public String getAttributeValue(WebElement element,String attribute){
+       return element.getAttribute(attribute);
+    }
+
+
+    public void switchToIframeWithIndex(int index){
+        DriverUtils.getInstance().getDriver().switchTo().frame(index);
+        System.out.println("Switched to Iframe");
+    }
+
+    public void backToPartentFrame(){
+        DriverUtils.getInstance().getDriver().switchTo().parentFrame();
+    }
+
+    public void backToDefault(){
+        DriverUtils.getInstance().getDriver().switchTo().defaultContent();
+    }
+
+
+    public void switchToIframeWithElement(WebElement element){
+        DriverUtils.getInstance().getDriver().switchTo().frame(element);
+        System.out.println("Switched to Inner Iframe");
+    }
+
+    public WebElement fluentWaitForVisible(WebElement element){
+        Wait<WebDriver> wait = new FluentWait<>(DriverUtils.getInstance().getDriver())
+                .withTimeout(Duration.ofSeconds(20))
+                .pollingEvery(Duration.ofSeconds(2))
+                .ignoring(Exception.class);
+        return wait.until(ExpectedConditions.visibilityOf(element));
+    }
+
+
+
+    public void scrollToElement(WebElement element){
+        JavascriptExecutor js = ((JavascriptExecutor) DriverUtils.getInstance().getDriver());
+        js.executeScript("arguments[0].scrollIntoView(true);",element);
+    }
+
+
+    public String getPageTitle(){
+       return DriverUtils.getInstance().getDriver().getTitle();
+    }
 
 }

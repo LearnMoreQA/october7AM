@@ -1,3 +1,3 @@
 .idea/*
 target/*
-src/test/java/testrunner/Runner.java
+test-output/*
